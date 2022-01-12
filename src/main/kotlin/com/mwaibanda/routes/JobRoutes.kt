@@ -19,8 +19,8 @@ import io.ktor.routing.*
      }
 
  }
-fun Route.getJobsById(jobController: JobController){
-    get("/jobs/{id}"){
+fun Route.getUserJobsById(jobController: JobController){
+    get("/jobs/user/{id}"){
         try {
             val id = call.parameters["id"].toString()
             val jobs: List<Job> = jobController.getJobsById(id)

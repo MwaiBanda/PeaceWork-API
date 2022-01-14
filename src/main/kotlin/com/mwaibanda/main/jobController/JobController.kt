@@ -12,7 +12,14 @@ class JobController(
     suspend fun getAllJobs(): List<Job> {
         return jobDataSource.getAllJobs()
     }
-    suspend fun getJobsById(id: String): List<Job> {
-        return jobDataSource.getJobsById(id)
+    suspend fun getUserJobsById(id: String): List<Job> {
+        return jobDataSource.getJobsByUserId(id)
     }
+    suspend fun updateJob(id: String, job: Job){
+        jobDataSource.updateJob(id, job)
+    }
+    suspend fun deleteJob(id: String) {
+        jobDataSource.deleteJob(id)
+    }
+
 }

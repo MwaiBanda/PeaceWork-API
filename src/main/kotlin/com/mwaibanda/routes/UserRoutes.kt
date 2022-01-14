@@ -18,7 +18,7 @@ data class  UserWrapper(
 
 fun Route.userRoutes(userController: UserController) {
 
-    post("/new-user") {
+    post("/users") {
         val paramas = call.receiveParameters()
         val createdOn = paramas["createdOn"].toString()
         val fullname = paramas["fullname"].toString()

@@ -16,7 +16,12 @@ fun Application.configureRouting() {
 
     install(Routing){
         getAllMessages(conversationController)
-        userRoutes(userController)
+        /* USER ROUTES */
+        postUser(userController)
+        getUserById(userController)
+        updateUser(userController)
+        deleteUser(userController)
+        /* JOBS ROUTES */
         postJob(jobController)
         getAllJobs(jobController)
         getUserJobsById(jobController)

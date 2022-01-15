@@ -12,6 +12,7 @@ import io.ktor.routing.*
 import org.bson.types.ObjectId
 import java.util.*
 import kotlinx.serialization.Serializable
+import org.litote.kmongo.MongoOperator
 
 fun Route.getUserById(userController: UserController){
     get("/users/{id}") {
@@ -48,7 +49,6 @@ fun Route.postUser(userController: UserController) {
         val dateStarted = paramas["dateStarted"].toString()
 
         userController.postUser(User(
-            id = ObjectId.get().toString(),
             createdOn = createdOn,
             fullname = fullname,
             email = email,
@@ -64,17 +64,16 @@ fun Route.postUser(userController: UserController) {
 fun Route.updateUser(userController: UserController) {
     put("/users/{id}") {
         val paramas = call.receiveParameters()
-        val id = paramas["id"].toString()
         val createdOn = paramas["createdOn"].toString()
         val fullname = paramas["fullname"].toString()
         val email = paramas["email"].toString()
-        val userID = paramas["userID"].toString()
+        val userID = paramas["id"].toString()
         val company = paramas["company"].toString()
         val position = paramas["position"].toString()
         val dateStarted = paramas["dateStarted"].toString()
 
-        userController.updateUser(id, User(
-            id = ObjectId.get().toString(),
+        userController.updateUser(
+            userID, User(
             createdOn = createdOn,
             fullname = fullname,
             email = email,

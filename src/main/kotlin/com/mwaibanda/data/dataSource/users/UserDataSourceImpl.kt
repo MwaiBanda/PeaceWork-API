@@ -26,7 +26,6 @@ class UserDataSourceImpl(
             User::createdOn setTo user.createdOn,
             User::fullname setTo user.fullname,
             User::email setTo user.email,
-            User::userID setTo user.userID,
             User::company setTo user.company,
             User::position setTo user.position,
             User::dateStarted setTo user.dateStarted

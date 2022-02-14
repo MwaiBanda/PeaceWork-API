@@ -1,6 +1,6 @@
 package com.mwaibanda.data.source.users
 
-import com.mwaibanda.data.model.user.User
+import com.mwaibanda.data.model.User
 
 interface UserDataSource {
     suspend fun insertUser(user: User)

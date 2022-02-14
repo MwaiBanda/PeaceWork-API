@@ -1,7 +1,7 @@
 package com.mwaibanda.main.messaging
 
 import com.mwaibanda.data.source.messages.MessageDataSource
-import com.mwaibanda.data.model.messaging.Message
+import com.mwaibanda.data.model.Message
 import io.ktor.http.cio.websocket.*
 import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json

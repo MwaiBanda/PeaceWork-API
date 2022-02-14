@@ -1,13 +1,8 @@
 package com.mwaibanda.data.source.messages
 
-import com.mwaibanda.data.model.messaging.Conversation
-import com.mwaibanda.data.model.messaging.Member
-import com.mwaibanda.data.model.messaging.Message
-import org.litote.kmongo.contains
+import com.mwaibanda.data.model.Message
 import org.litote.kmongo.coroutine.CoroutineDatabase
-import org.litote.kmongo.div
 import org.litote.kmongo.eq
-import org.litote.kmongo.match
 
 class MessageDataSourceImpl(
     private val db: CoroutineDatabase

@@ -1,4 +1,4 @@
-package com.mwaibanda.data.model.messaging
+package com.mwaibanda.data.model.conversation
 
 import kotlinx.serialization.Serializable
 import org.bson.codecs.pojo.annotations.BsonId

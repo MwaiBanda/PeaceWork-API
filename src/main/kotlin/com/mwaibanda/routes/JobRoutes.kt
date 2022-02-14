@@ -1,11 +1,8 @@
 package com.mwaibanda.routes
 
 import com.mwaibanda.data.model.Job
-import com.mwaibanda.data.model.messaging.Conversation
-import com.mwaibanda.data.model.messaging.LastSent
-import com.mwaibanda.data.model.messaging.Member
-import com.mwaibanda.main.conversations.ConversationController
-import com.mwaibanda.main.jobs.JobController
+import com.mwaibanda.main.ConversationController
+import com.mwaibanda.main.JobController
 import io.ktor.application.*
 import io.ktor.http.*
 import io.ktor.request.*

@@ -1,4 +1,4 @@
-package com.mwaibanda.data.model.user
+package com.mwaibanda.data.model
 
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.builtins.LongAsStringSerializer

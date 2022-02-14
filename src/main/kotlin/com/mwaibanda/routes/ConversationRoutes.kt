@@ -1,11 +1,11 @@
 package com.mwaibanda.routes
 
-import com.mwaibanda.data.model.Job
-import com.mwaibanda.data.model.messaging.Conversation
-import com.mwaibanda.main.conversations.ConversationController
-import com.mwaibanda.main.messaging.MessageController
+import com.mwaibanda.data.model.conversation.Conversation
+import com.mwaibanda.data.model.conversation.LastSent
+import com.mwaibanda.main.ConversationController
 import io.ktor.application.*
 import io.ktor.http.*
+import io.ktor.request.*
 import io.ktor.response.*
 import io.ktor.routing.*
 
@@ -17,6 +17,28 @@ fun Route.userConversations(conversationController: ConversationController) {
                 val id = call.parameters["userId"].toString()
                 val conversations: List<Conversation> = conversationController.getConversationsByUserID(id)
                 call.respond(HttpStatusCode.OK,  conversations)
+            } catch (e: Exception){
+                e.printStackTrace()
+            }
+        }
+        put ("last-sent/{conversationId}"){
+            val params = call.receiveParameters()
+            val conversationId = params["conversationId"].toString()
+            val id = params["userId"].toString()
+            val username = params["username"].toString()
+            val message = params["message"].toString()
+            val isSeen = params["isSeen"].toBoolean()
+            try {
+                conversationController.updateLastSent(
+                    conversationId,
+                    LastSent(
+                        id = id,
+                        username = username,
+                        message = message,
+                        isSeen = isSeen
+                    )
+                )
+                call.respond(HttpStatusCode.OK)
             } catch (e: Exception){
                 e.printStackTrace()
             }

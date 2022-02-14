@@ -1,7 +1,7 @@
 package com.mwaibanda.routes
 
-import com.mwaibanda.data.model.user.User
-import com.mwaibanda.main.users.UserController
+import com.mwaibanda.data.model.User
+import com.mwaibanda.main.UserController
 import io.ktor.application.*
 import io.ktor.http.*
 import io.ktor.request.*
@@ -42,7 +42,8 @@ fun Route.postUser(userController: UserController) {
         val position = paramas["position"].toString()
         val dateStarted = paramas["dateStarted"].toString()
 
-        userController.postUser(User(
+        userController.postUser(
+            User(
             createdOn = createdOn,
             fullname = fullname,
             email = email,
@@ -50,7 +51,8 @@ fun Route.postUser(userController: UserController) {
             company = company,
             position = position,
             dateStarted = dateStarted
-        ))
+        )
+        )
         call.respond(HttpStatusCode.OK,"SUCCESS")
     }
 }
@@ -75,7 +77,8 @@ fun Route.updateUser(userController: UserController) {
             company = company,
             position = position,
             dateStarted = dateStarted
-        ))
+        )
+        )
         call.respond(HttpStatusCode.OK,"SUCCESS")
     }
 }

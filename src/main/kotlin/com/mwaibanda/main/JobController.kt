@@ -1,4 +1,4 @@
-package com.mwaibanda.main.jobs
+package com.mwaibanda.main
 
 import com.mwaibanda.data.source.jobs.JobDataSource
 import com.mwaibanda.data.model.Job

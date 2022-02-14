@@ -1,6 +1,6 @@
 package com.mwaibanda.data.source.users
 
-import com.mwaibanda.data.model.user.User
+import com.mwaibanda.data.model.User
 import org.litote.kmongo.coroutine.CoroutineDatabase
 import org.litote.kmongo.eq
 import org.litote.kmongo.set
@@ -22,7 +22,8 @@ class UserDataSourceImpl(
     }
 
     override suspend fun updateUser(id: String, user: User) {
-        users.updateOne(User::userID eq id, set(
+        users.updateOne(
+            User::userID eq id, set(
             User::createdOn setTo user.createdOn,
             User::fullname setTo user.fullname,
             User::email setTo user.email,

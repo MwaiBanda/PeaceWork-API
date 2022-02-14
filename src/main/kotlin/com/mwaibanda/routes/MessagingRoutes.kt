@@ -6,7 +6,6 @@ import com.mwaibanda.sessions.ConversationSession
 import io.ktor.application.*
 import io.ktor.http.*
 import io.ktor.http.cio.websocket.*
-import io.ktor.request.*
 import io.ktor.response.*
 import io.ktor.routing.*
 import io.ktor.sessions.*
@@ -22,7 +21,6 @@ fun Route.messageSocketRoute(messageController: MessageController){
             return@webSocket
         }
         val id = call.parameters["id"].toString()
-
 
         try {
             messageController.onJoin(
@@ -50,7 +48,7 @@ fun Route.messageSocketRoute(messageController: MessageController){
     }
 }
 
-fun Route.getAllConversationMessages(messageController: MessageController) {
+fun Route.getAllMessagesForConversation(messageController: MessageController) {
     get("/messages/{id}") {
         val id = call.parameters["id"].toString()
         call.respond(

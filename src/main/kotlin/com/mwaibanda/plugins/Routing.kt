@@ -1,9 +1,9 @@
 package com.mwaibanda.plugins
 
-import com.mwaibanda.main.conversations.ConversationController
+import com.mwaibanda.main.ConversationController
 import com.mwaibanda.main.messaging.MessageController
-import com.mwaibanda.main.jobs.JobController
-import com.mwaibanda.main.users.UserController
+import com.mwaibanda.main.JobController
+import com.mwaibanda.main.UserController
 import com.mwaibanda.routes.*
 //import com.mwaibanda.routes.conversationSocketRoutes
 import io.ktor.routing.*
@@ -18,7 +18,7 @@ fun Application.configureRouting() {
 
     install(Routing){
         /* MESSAGING ROUTES */
-        getAllConversationMessages(messageController)
+        getAllMessagesForConversation(messageController)
         messageSocketRoute(messageController)
         /* CONVERSATION ROUTES */
         userConversations(conversationController)

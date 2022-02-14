@@ -9,9 +9,9 @@ import com.mwaibanda.data.source.messages.MessageDataSource
 import com.mwaibanda.data.source.messages.MessageDataSourceImpl
 import com.mwaibanda.data.source.users.UserDataSource
 import com.mwaibanda.data.source.users.UserDataSourceImpl
-import com.mwaibanda.main.conversations.ConversationController
-import com.mwaibanda.main.jobs.JobController
-import com.mwaibanda.main.users.UserController
+import com.mwaibanda.main.ConversationController
+import com.mwaibanda.main.JobController
+import com.mwaibanda.main.UserController
 import org.koin.dsl.module
 import org.litote.kmongo.coroutine.coroutine
 import org.litote.kmongo.reactivestreams.KMongo

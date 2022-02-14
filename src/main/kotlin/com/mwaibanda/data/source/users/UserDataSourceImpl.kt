@@ -1,4 +1,4 @@
-package com.mwaibanda.data.dataSource.users
+package com.mwaibanda.data.source.users
 
 import com.mwaibanda.data.model.user.User
 import org.litote.kmongo.coroutine.CoroutineDatabase

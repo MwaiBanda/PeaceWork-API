@@ -1,4 +1,4 @@
-package com.mwaibanda.data.model.messages
+package com.mwaibanda.data.model.messaging
 
 import kotlinx.serialization.Serializable
 import org.bson.codecs.pojo.annotations.BsonId
@@ -11,7 +11,5 @@ data class Message(
     val text: String,
     val username: String,
     val timestamp: Long,
-    val sender: String,
-    val recipient: String,
     val conversationId: String
 )

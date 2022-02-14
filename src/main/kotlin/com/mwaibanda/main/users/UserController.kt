@@ -1,7 +1,7 @@
-package com.mwaibanda.main.userController
+package com.mwaibanda.main.users
 
 import com.mwaibanda.data.model.user.User
-import com.mwaibanda.data.dataSource.users.UserDataSource
+import com.mwaibanda.data.source.users.UserDataSource
 
 class UserController(
     private val userDataSource: UserDataSource

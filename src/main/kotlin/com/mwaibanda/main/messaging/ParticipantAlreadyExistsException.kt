@@ -1,4 +1,4 @@
-package com.mwaibanda.main.conversationController
+package com.mwaibanda.main.messaging
 
 import java.lang.Exception
 

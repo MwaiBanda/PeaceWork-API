@@ -1,18 +1,12 @@
 package com.mwaibanda.routes
 
-import com.mwaibanda.data.model.Job
 import com.mwaibanda.data.model.user.User
-import com.mwaibanda.main.jobController.JobController
-import com.mwaibanda.main.userController.UserController
+import com.mwaibanda.main.users.UserController
 import io.ktor.application.*
 import io.ktor.http.*
 import io.ktor.request.*
 import io.ktor.response.*
 import io.ktor.routing.*
-import org.bson.types.ObjectId
-import java.util.*
-import kotlinx.serialization.Serializable
-import org.litote.kmongo.MongoOperator
 
 fun Route.getUserById(userController: UserController){
     get("/users/{id}") {

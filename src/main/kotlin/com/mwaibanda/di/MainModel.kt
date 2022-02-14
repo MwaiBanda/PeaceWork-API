@@ -1,14 +1,17 @@
 package com.mwaibanda.di
 
-import com.mwaibanda.data.dataSource.jobs.JobDataSource
-import com.mwaibanda.data.dataSource.jobs.JobDataSourceImpl
-import com.mwaibanda.main.conversationController.ConversationController
-import com.mwaibanda.data.dataSource.messages.MessageDataSource
-import com.mwaibanda.data.dataSource.messages.MessageDataSourceImpl
-import com.mwaibanda.data.dataSource.users.UserDataSource
-import com.mwaibanda.data.dataSource.users.UserDataSourceImpl
-import com.mwaibanda.main.jobController.JobController
-import com.mwaibanda.main.userController.UserController
+import com.mwaibanda.data.source.conversations.ConversationDataSource
+import com.mwaibanda.data.source.conversations.ConversationDataSourceImpl
+import com.mwaibanda.data.source.jobs.JobDataSource
+import com.mwaibanda.data.source.jobs.JobDataSourceImpl
+import com.mwaibanda.main.messaging.MessageController
+import com.mwaibanda.data.source.messages.MessageDataSource
+import com.mwaibanda.data.source.messages.MessageDataSourceImpl
+import com.mwaibanda.data.source.users.UserDataSource
+import com.mwaibanda.data.source.users.UserDataSourceImpl
+import com.mwaibanda.main.conversations.ConversationController
+import com.mwaibanda.main.jobs.JobController
+import com.mwaibanda.main.users.UserController
 import org.koin.dsl.module
 import org.litote.kmongo.coroutine.coroutine
 import org.litote.kmongo.reactivestreams.KMongo
@@ -19,13 +22,15 @@ val mainModule = module {
            .coroutine
            .getDatabase("peacework_db")
     }
+    single<ConversationDataSource> {
+        ConversationDataSourceImpl(get())
+    }
+    single { ConversationController(get()) }
 
     single<MessageDataSource> {
         MessageDataSourceImpl(get())
     }
-    single {
-        ConversationController(get())
-    }
+    single { MessageController(get()) }
 
     single<UserDataSource> {
         UserDataSourceImpl(get())
@@ -34,10 +39,9 @@ val mainModule = module {
     single {
         UserController(get())
     }
+
     single<JobDataSource> {
         JobDataSourceImpl(get())
     }
-    single {
-        JobController(get())
-    }
+    single { JobController(get()) }
 }

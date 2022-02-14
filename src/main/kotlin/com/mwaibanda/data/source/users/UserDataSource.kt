@@ -1,6 +1,5 @@
-package com.mwaibanda.data.dataSource.users
+package com.mwaibanda.data.source.users
 
-import com.mwaibanda.data.model.Job
 import com.mwaibanda.data.model.user.User
 
 interface UserDataSource {

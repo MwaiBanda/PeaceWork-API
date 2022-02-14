@@ -1,9 +1,10 @@
-package com.mwaibanda.main.conversationController
+package com.mwaibanda.main.messaging
 
 import io.ktor.http.cio.websocket.*
 
 data class Participant(
     val username: String,
     val sessionId: String,
-    val socket: WebSocketSession
-)
+    val socket: WebSocketSession,
+    val conversationId: String
+    )

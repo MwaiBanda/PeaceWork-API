@@ -1,6 +1,6 @@
-package com.mwaibanda.main.jobController
+package com.mwaibanda.main.jobs
 
-import com.mwaibanda.data.dataSource.jobs.JobDataSource
+import com.mwaibanda.data.source.jobs.JobDataSource
 import com.mwaibanda.data.model.Job
 
 class JobController(

@@ -1,49 +1,41 @@
 package com.mwaibanda.routes
 
-import com.mwaibanda.main.conversationController.ConversationController
+import com.mwaibanda.data.model.Job
+import com.mwaibanda.data.model.messaging.Conversation
+import com.mwaibanda.main.conversations.ConversationController
+import com.mwaibanda.main.messaging.MessageController
 import io.ktor.application.*
 import io.ktor.http.*
 import io.ktor.response.*
 import io.ktor.routing.*
 
-//
-//fun Route.conversationSocketRoutes(conversationController: ConversationController){
-//    webSocket("/converse") {
-//        val session = call.sessions.get<ConversationSession>()
-//        if(session == null) {
-//            close(CloseReason(CloseReason.Codes.VIOLATED_POLICY, "No session"))
-//            return@webSocket
-//        }
-//        try {
-//            conversationController.onJoin(
-//                username = session.username,
-//                sessionId = session.sessionId,
-//                socket = this
-//            )
-//            incoming.consumeEach { frame ->
-//                if (frame is Frame.Text) {
-//                    conversationController.sendMessage(
-//                        username = session.username,
-//                        message = frame.readText(),
-//                        sender = "1",
-//                        recipient = "2",
-//                        conversationId = "001"
-//                    )
-//                }
-//            }
-//        } catch (e: ParticipantAlreadyExistsException){
-//            call.respond(HttpStatusCode.Conflict)
-//        } catch (e : Exception) {
-//            e.printStackTrace()
-//        }
-//    }
-//}
 
-fun Route.getAllMessages(conversationController: ConversationController) {
-    get("/messages") {
-        call.respond(
-            HttpStatusCode.OK,
-            conversationController.getAllMessage(conversationId = "001")
-        )
+fun Route.userConversations(conversationController: ConversationController) {
+    route("conversations") {
+        get ("{userId}"){
+            try {
+                val id = call.parameters["userId"].toString()
+                val conversations: List<Conversation> = conversationController.getConversationsByUserID(id)
+                call.respond(HttpStatusCode.OK,  conversations)
+            } catch (e: Exception){
+                e.printStackTrace()
+            }
+        }
     }
 }
+
+
+//conversationController.postConversation(Conversation(
+//id = "C22-A576544E",
+//participants = listOf(
+//Member(id = "TlwcMClcKvev3JwvqlJpeQObAgz1", username = "Mwai Banda"),
+//Member(id = "hDu81Ly1rMeltjW7j4r4qFN25uw2", username = "Amanda Chimbuka")
+//),
+//lastSent = LastSent(
+//id ="TlwcMClcKvev3JwvqlJpeQObAgz1",
+//username = "Mwai Banda",
+//message = "Hi, we need to talk!",
+//isSeen = false
+//),
+//timestamp = System.currentTimeMillis(),
+//))

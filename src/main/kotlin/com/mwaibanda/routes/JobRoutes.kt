@@ -1,18 +1,23 @@
 package com.mwaibanda.routes
 
 import com.mwaibanda.data.model.Job
-import com.mwaibanda.main.jobController.JobController
+import com.mwaibanda.data.model.messaging.Conversation
+import com.mwaibanda.data.model.messaging.LastSent
+import com.mwaibanda.data.model.messaging.Member
+import com.mwaibanda.main.conversations.ConversationController
+import com.mwaibanda.main.jobs.JobController
 import io.ktor.application.*
 import io.ktor.http.*
 import io.ktor.request.*
 import io.ktor.response.*
 import io.ktor.routing.*
-import org.litote.kmongo.MongoOperator
 
-fun Route.getAllJobs(jobController: JobController) {
+fun Route.getAllJobs(jobController: JobController, conversationController: ConversationController) {
      get("/jobs") {
          try {
              val jobs: List<Job> = jobController.getAllJobs()
+
+
              call.respond(HttpStatusCode.OK,  jobs)
          } catch (e: Exception){
              e.printStackTrace()

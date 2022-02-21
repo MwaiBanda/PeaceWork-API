@@ -8,6 +8,7 @@ import com.mwaibanda.routes.*
 //import com.mwaibanda.routes.conversationSocketRoutes
 import io.ktor.routing.*
 import io.ktor.application.*
+import io.ktor.http.content.*
 import org.koin.ktor.ext.inject
 
 fun Application.configureRouting() {
@@ -33,6 +34,9 @@ fun Application.configureRouting() {
         getUserJobsById(jobController)
         updateJob(jobController)
         deleteJob(jobController)
+        static("/assets") {
+            resources("assets")
+        }
     }
 }
 

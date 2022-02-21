@@ -43,7 +43,7 @@ fun Route.messageSocketRoute(messageController: MessageController){
         } catch (e : Exception) {
             e.printStackTrace()
         } finally {
-            messageController.tryDisconnect(id, session.username)
+            messageController.tryDisconnect(session.username)
         }
     }
 }

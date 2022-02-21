@@ -24,7 +24,7 @@ fun Route.messageSocketRoute(messageController: MessageController){
 
         try {
             messageController.onJoin(
-                username = session.username,
+                userId = session.username,
                 sessionId = session.sessionId,
                 socket = this,
                 conversationID = id
@@ -32,7 +32,7 @@ fun Route.messageSocketRoute(messageController: MessageController){
             incoming.consumeEach { frame ->
                 if (frame is Frame.Text) {
                     messageController.sendMessage(
-                        username = session.username,
+                        userId = session.username,
                         message = frame.readText(),
                         conversationId = id
                     )

@@ -9,7 +9,8 @@ data class Message(
     @BsonId
     val id: String = ObjectId().toString(),
     val text: String,
-    val username: String,
+    val userId: String,
     val timestamp: Long,
+    val date: String,
     val conversationId: String
 )

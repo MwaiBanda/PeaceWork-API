@@ -1,4 +1,4 @@
-package com.mwaibanda.data.model.jobs
+package com.mwaibanda.data.model.job
 
 import com.fasterxml.jackson.annotation.JsonFormat
 

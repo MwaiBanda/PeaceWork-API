@@ -7,7 +7,7 @@ import org.bson.codecs.pojo.annotations.BsonId
 data class Conversation(
     @BsonId
     val id: String,
-    val participants: List<Member>,
+    val participants: List<Participant>,
     val lastSent: LastSent,
     val timestamp: Long
 )

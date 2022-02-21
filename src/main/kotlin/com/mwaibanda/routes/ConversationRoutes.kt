@@ -24,7 +24,7 @@ fun Route.userConversations(conversationController: ConversationController) {
         put ("last-sent/{conversationId}"){
             val params = call.receiveParameters()
             val conversationId = params["conversationId"].toString()
-            val id = params["userId"].toString()
+            val lastSentDate = params["lastSentDate"].toString()
             val username = params["username"].toString()
             val message = params["message"].toString()
             val isSeen = params["isSeen"].toBoolean()
@@ -32,9 +32,9 @@ fun Route.userConversations(conversationController: ConversationController) {
                 conversationController.updateLastSent(
                     conversationId,
                     LastSent(
-                        id = id,
-                        username = username,
+                        userId = username,
                         message = message,
+                        lastSentDate = lastSentDate,
                         isSeen = isSeen
                     )
                 )

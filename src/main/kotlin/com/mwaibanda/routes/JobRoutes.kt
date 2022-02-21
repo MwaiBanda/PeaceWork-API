@@ -36,21 +36,21 @@ fun Route.getUserJobsById(jobController: JobController){
 
 fun Route.updateJob(jobController: JobController){
     put("/jobs/{id}") {
-        val paramas = call.receiveParameters()
-        val id = paramas["id"].toString()
-        val title = paramas["title"].toString()
-        val company = paramas["company"].toString()
-        val location = paramas["location"].toString()
-        val pay = paramas["pay"].toString()
-        val payRate = paramas["payRate"].toString()
-        val type = paramas["type"].toString()
-        val employmentType = paramas["type"].toString()
-        val description = paramas["description"].toString()
-        val qualifications = paramas["qualifications"].toString()
-        val responsibilities = paramas["responsibilities"].toString()
-        val publisher = paramas["publisher"].toString()
-        val startDate = paramas["startDate"].toString()
-        val contactEmail = paramas["contactEmail"].toString()
+        val params = call.receiveParameters()
+        val id = params["id"].toString()
+        val title = params["title"].toString()
+        val company = params["company"].toString()
+        val location = params["location"].toString()
+        val pay = params["pay"].toString()
+        val payRate = params["payRate"].toString()
+        val type = params["type"].toString()
+        val employmentType = params["type"].toString()
+        val description = params["description"].toString()
+        val qualifications = params["qualifications"].toString()
+        val responsibilities = params["responsibilities"].toString()
+        val publisher = params["publisher"].toString()
+        val startDate = params["startDate"].toString()
+        val contactEmail = params["contactEmail"].toString()
         try {
             jobController.updateJob(id, Job(
                 title = title,
@@ -87,20 +87,20 @@ fun Route.deleteJob(jobController: JobController){
 }
 fun Route.postJob(jobController: JobController){
     post("/jobs") {
-        val paramas = call.receiveParameters()
-        val title = paramas["title"].toString()
-        val company = paramas["company"].toString()
-        val location = paramas["location"].toString()
-        val pay = paramas["pay"].toString()
-        val payRate = paramas["payRate"].toString()
-        val type = paramas["type"].toString()
-        val employmentType = paramas["type"].toString()
-        val description = paramas["description"].toString()
-        val qualifications = paramas["qualifications"].toString()
-        val responsibilities = paramas["responsibilities"].toString()
-        val publisher = paramas["publisher"].toString()
-        val startDate = paramas["startDate"].toString()
-        val contactEmail = paramas["contactEmail"].toString()
+        val params = call.receiveParameters()
+        val title = params["title"].toString()
+        val company = params["company"].toString()
+        val location = params["location"].toString()
+        val pay = params["pay"].toString()
+        val payRate = params["payRate"].toString()
+        val type = params["type"].toString()
+        val employmentType = params["type"].toString()
+        val description = params["description"].toString()
+        val qualifications = params["qualifications"].toString()
+        val responsibilities = params["responsibilities"].toString()
+        val publisher = params["publisher"].toString()
+        val startDate = params["startDate"].toString()
+        val contactEmail = params["contactEmail"].toString()
 
         jobController.postJob(
             Job(

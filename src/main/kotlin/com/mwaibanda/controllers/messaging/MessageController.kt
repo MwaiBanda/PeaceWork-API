@@ -1,4 +1,4 @@
-package com.mwaibanda.main.messaging
+package com.mwaibanda.controllers.messaging
 
 import com.mwaibanda.data.source.messages.MessageDataSource
 import com.mwaibanda.data.model.Message

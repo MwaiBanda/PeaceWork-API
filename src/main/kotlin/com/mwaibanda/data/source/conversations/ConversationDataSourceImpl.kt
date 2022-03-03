@@ -28,4 +28,8 @@ class ConversationDataSourceImpl(
             )
         )
     }
+
+    override suspend fun deleteConversation(conversationId: String) {
+        conversationCollection.deleteOne(Conversation::id eq conversationId)
+    }
 }

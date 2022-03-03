@@ -1,4 +1,4 @@
-package com.mwaibanda.main.messaging
+package com.mwaibanda.controllers.messaging
 
 import io.ktor.http.cio.websocket.*
 

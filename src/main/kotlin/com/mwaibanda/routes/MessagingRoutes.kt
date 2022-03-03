@@ -1,7 +1,7 @@
 package com.mwaibanda.routes
 
-import com.mwaibanda.main.messaging.MessageController
-import com.mwaibanda.main.messaging.ParticipantAlreadyExistsException
+import com.mwaibanda.controllers.messaging.MessageController
+import com.mwaibanda.controllers.messaging.ParticipantAlreadyExistsException
 import com.mwaibanda.sessions.ConversationSession
 import io.ktor.application.*
 import io.ktor.http.*

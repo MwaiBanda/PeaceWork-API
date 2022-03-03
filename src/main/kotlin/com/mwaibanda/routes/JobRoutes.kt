@@ -1,8 +1,8 @@
 package com.mwaibanda.routes
 
 import com.mwaibanda.data.model.Job
-import com.mwaibanda.main.ConversationController
-import com.mwaibanda.main.JobController
+import com.mwaibanda.controllers.ConversationController
+import com.mwaibanda.controllers.JobController
 import io.ktor.application.*
 import io.ktor.http.*
 import io.ktor.request.*

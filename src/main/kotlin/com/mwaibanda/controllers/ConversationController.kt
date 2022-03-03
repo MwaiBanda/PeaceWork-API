@@ -1,4 +1,4 @@
-package com.mwaibanda.main
+package com.mwaibanda.controllers
 
 import com.mwaibanda.data.model.conversation.Conversation
 import com.mwaibanda.data.model.conversation.LastSent
@@ -11,8 +11,11 @@ class ConversationController(
         return conversationDataSource.getConversationsByUserID(userID)
     }
 
-    suspend fun updateConversation(conversation: Conversation) {
+    suspend fun postConversation(conversation: Conversation) {
         conversationDataSource.insertConversation(conversation)
+    }
+    suspend fun deleteConversation(conversationId: String) {
+        conversationDataSource.deleteConversation(conversationId)
     }
 
     suspend fun updateLastSent(conversationId: String, lastSent: LastSent) {

@@ -1,7 +1,7 @@
 package com.mwaibanda.routes
 
 import com.mwaibanda.data.model.User
-import com.mwaibanda.main.UserController
+import com.mwaibanda.controllers.UserController
 import io.ktor.application.*
 import io.ktor.http.*
 import io.ktor.request.*

@@ -1,9 +1,9 @@
 package com.mwaibanda.plugins
 
-import com.mwaibanda.main.ConversationController
-import com.mwaibanda.main.messaging.MessageController
-import com.mwaibanda.main.JobController
-import com.mwaibanda.main.UserController
+import com.mwaibanda.controllers.ConversationController
+import com.mwaibanda.controllers.messaging.MessageController
+import com.mwaibanda.controllers.JobController
+import com.mwaibanda.controllers.UserController
 import com.mwaibanda.routes.*
 //import com.mwaibanda.routes.conversationSocketRoutes
 import io.ktor.routing.*

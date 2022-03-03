@@ -4,6 +4,8 @@ import io.ktor.serialization.*
 import io.ktor.features.*
 import io.ktor.application.*
 import io.ktor.application.*
+import io.ktor.http.*
+import io.ktor.http.ContentType.Application.Cbor
 import io.ktor.http.ContentType.Application.Json
 import io.ktor.response.*
 import io.ktor.request.*
@@ -12,7 +14,13 @@ import kotlinx.serialization.json.Json
 
 fun Application.configureSerialization() {
     install(ContentNegotiation) {
-        json()
+        json(Json {
+            prettyPrint = true
+            isLenient = true
+        })
+
+
+
     }
 
 }

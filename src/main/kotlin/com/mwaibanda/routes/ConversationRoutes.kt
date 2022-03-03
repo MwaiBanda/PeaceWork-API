@@ -2,17 +2,36 @@ package com.mwaibanda.routes
 
 import com.mwaibanda.data.model.conversation.Conversation
 import com.mwaibanda.data.model.conversation.LastSent
-import com.mwaibanda.main.ConversationController
+import com.mwaibanda.controllers.ConversationController
 import io.ktor.application.*
 import io.ktor.http.*
 import io.ktor.request.*
 import io.ktor.response.*
 import io.ktor.routing.*
+import org.litote.kmongo.MongoOperator
 
 
 fun Route.userConversations(conversationController: ConversationController) {
-    route("conversations") {
-        get ("{userId}"){
+    route("/conversations") {
+        post {
+            try {
+                val conversation = call.receive<Conversation>()
+                conversationController.postConversation(conversation)
+                call.respond(HttpStatusCode.OK,  "Successfully post conversation ${conversation.id}")
+            } catch (e: Exception){
+                e.printStackTrace()
+            }
+        }
+        delete("/{conversationId}") {
+            try {
+                val id = call.parameters["conversationId"].toString()
+                conversationController.deleteConversation(id)
+                call.respond(HttpStatusCode.OK,  "Successfully deleted conversation $id")
+            } catch (e: Exception){
+                e.printStackTrace()
+            }
+        }
+        get ("/{userId}"){
             try {
                 val id = call.parameters["userId"].toString()
                 val conversations: List<Conversation> = conversationController.getConversationsByUserID(id)
@@ -21,7 +40,8 @@ fun Route.userConversations(conversationController: ConversationController) {
                 e.printStackTrace()
             }
         }
-        put ("last-sent/{conversationId}"){
+
+        put ("/last-sent/{conversationId}"){
             val params = call.receiveParameters()
             val conversationId = params["conversationId"].toString()
             val lastSentDate = params["lastSentDate"].toString()

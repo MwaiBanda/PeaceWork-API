@@ -1,1 +1,1 @@
-rootProject.name = "com.mwaibanda.peacework-server"
+rootProject.name = "PeaceWork-API"

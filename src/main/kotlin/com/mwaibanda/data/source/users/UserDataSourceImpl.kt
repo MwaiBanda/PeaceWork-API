@@ -1,6 +1,6 @@
 package com.mwaibanda.data.source.users
 
-import com.mwaibanda.data.model.User
+import com.mwaibanda.data.model.user.User
 import org.litote.kmongo.coroutine.CoroutineDatabase
 import org.litote.kmongo.eq
 import org.litote.kmongo.set
@@ -16,9 +16,18 @@ class UserDataSourceImpl(
     }
 
     override suspend fun getUserById(id: String): User {
-         users.findOne(User::userID eq id).let {
-            return it!!
-        }
+        return users.findOne(User::userID eq id) ?:
+        User(
+            id = "PW-U00000-P6W-384",
+            createdOn = "12/12/2021",
+            fullname = "Guest",
+            email = "guest@peacework.com",
+            userID = "U00000-P6W",
+            company = "-",
+            position = "-",
+            dateStarted = "-",
+            emptyList()
+        )
     }
 
     override suspend fun updateUser(id: String, user: User) {

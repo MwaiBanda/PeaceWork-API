@@ -11,6 +11,7 @@ import io.ktor.response.*
 import io.ktor.request.*
 import io.ktor.routing.*
 import kotlinx.serialization.json.Json
+import kotlinx.serialization.json.JsonNull.content
 
 fun Application.configureSerialization() {
     install(ContentNegotiation) {
@@ -18,7 +19,6 @@ fun Application.configureSerialization() {
             prettyPrint = true
             isLenient = true
         })
-
 
 
     }

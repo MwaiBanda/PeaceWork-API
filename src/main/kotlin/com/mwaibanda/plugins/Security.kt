@@ -14,8 +14,8 @@ fun Application.configureSecurity() {
     }
 
     intercept(ApplicationCallPipeline.Features){
-        if (call.sessions.get<ConversationSession>() == null || call.sessions.get<ConversationSession>()?.username == "Guest"){
-            val username = call.parameters["userId"] ?: "Guest-PW22-${(1..9).random()}${(100..999).random()}${(10..99).random()}"
+        if (call.sessions.get<ConversationSession>() == null || call.sessions.get<ConversationSession>()?.username == "Guest" || call.sessions.get<ConversationSession>()?.username != call.parameters["userId"] ){
+            val username = call.parameters["userId"] ?: "Guest"
             call.sessions.set(ConversationSession(username, generateNonce()))
         }
     }

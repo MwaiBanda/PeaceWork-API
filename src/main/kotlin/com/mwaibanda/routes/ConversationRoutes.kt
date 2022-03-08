@@ -17,7 +17,7 @@ fun Route.userConversations(conversationController: ConversationController) {
             try {
                 val conversation = call.receive<Conversation>()
                 conversationController.postConversation(conversation)
-                call.respond(HttpStatusCode.OK,  "Successfully post conversation ${conversation.id}")
+                call.respond(HttpStatusCode.Created,  "Successfully Created conversation ${conversation.id}")
             } catch (e: Exception){
                 e.printStackTrace()
             }
@@ -31,7 +31,7 @@ fun Route.userConversations(conversationController: ConversationController) {
                 e.printStackTrace()
             }
         }
-        get ("/{userId}"){
+        get {
             try {
                 val id = call.parameters["userId"].toString()
                 val conversations: List<Conversation> = conversationController.getConversationsByUserID(id)

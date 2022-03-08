@@ -6,6 +6,7 @@ import com.mwaibanda.sessions.ConversationSession
 import io.ktor.application.*
 import io.ktor.http.*
 import io.ktor.http.cio.websocket.*
+import io.ktor.request.*
 import io.ktor.response.*
 import io.ktor.routing.*
 import io.ktor.sessions.*
@@ -20,7 +21,9 @@ fun Route.messageSocketRoute(messageController: MessageController){
             close(CloseReason(CloseReason.Codes.VIOLATED_POLICY, "No session"))
             return@webSocket
         }
-        val id = call.parameters["id"].toString()
+        val params = call.receiveParameters()
+
+        val id = params["id"].toString()
 
         try {
             messageController.onJoin(
